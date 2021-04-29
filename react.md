@@ -2,6 +2,8 @@ Welcome to my style guidelines for React and JSX. There are (or will be?) other 
 I will probably create an eslint rule set soon.
 
 # Guidelines for React {
+I prefer not using a default export, that way whenever you import a component, you make sure everyone is using the same name for that element. <br />
+This means you won't have `import Something from './page';` and you will always have `import { Page } from './page';`
 <h3>Creating class style element</h3>
 
 ```javascript
@@ -17,6 +19,21 @@ export class Page extends Component {
             <p>Things</p>
         );
     }
+}
+```
+
+<br />
+<h3>Function style element and hooks</h3>
+
+```javascript
+export function Page(props) {
+    const [ title, setTitle ] = useState('Page title');
+    
+    return (
+        <div className="page">
+            <h1>{title}</h1>
+        </div>
+    );
 }
 ```
 
