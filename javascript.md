@@ -6,6 +6,8 @@ Welcome to my set of a few good practice guidelines for JS. There are a few more
 - Always declare arrays in single line when it has only a few elements: `[ 'thing', 'thing2' ];`
 - Keep your code easy to understand, if you're using ternary operators, use it only for one condition, do not chain them
 - No matter what kind of indentation you use (spaces/tabs) as long as you use width of 4, this keeps the code clean and very easy to read
+- Use spaces after each parameter in a function or method and between different parts of the declaration: `function something(param1, param2, param3) {`
+- Use spaces to keep conditions and loops easy to read: `if (condition) {` / `for (let i = 0; i < 5; i++) {`
 
 ## Always prefer const
 I prefer this for easy debugging and preventing errors. Remember, `const` means you cannot re-assign that variable, but you can change it's value if it is an array or an object.
@@ -78,4 +80,51 @@ const people = peopleArray.map(person => ({
     isAdult: (person.age >= 18)
 });
 ```
+
+<h2>Conditions</h2>
+
+### Do not use redundant checks
+If you have a condition that always returns either `true` or `false`, you don't need to compare it:
+
+```javascript
+// Do not use
+if (something == true) {
+
+// Instead just do
+if (something) {
+```
+
+### This applies to functions too
+
+```javascript
+// Do not do this
+function isSomethingTrue(something) {
+    if (something) {
+        return true;
+    }
+    
+    return false;
+}
+
+// Instead do this
+function isSomethingTrue(something) {
+    return (something);
+}
+```
+
+### You don't need `else`
+Sounds weird, but trust me your code will start to look a lot cleaner and easier to understand. <br />
+You can use `return` or `throw` to stop the flow. 
+There's a good article here: https://medium.com/@jamousgeorges/dont-use-else-66ee163deac3 if you'd like to read more about this.
+
+```javascript
+function getName() {
+    if (!person.name) {
+        return 'Name not available';
+    }
+    
+    return person.name;
+}
+```
+
 # };
