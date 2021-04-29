@@ -4,6 +4,8 @@ I will probably create an eslint rule set soon.
 # Guidelines for React {
 I prefer not using a default export, that way whenever you import a component, you make sure everyone is using the same name for that element. <br />
 This means you won't have `import Something from './page';` and you will always have `import { Page } from './page';`
+
+<h2>Creating and returning elements</h2>
 <h3>Creating class style element</h3>
 
 ```javascript
