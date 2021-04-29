@@ -68,6 +68,7 @@ people.forEach(person => registerPerson(person));
 ```
 
 <h3>Customizing each element of the array</h3>
+
 In this case, you can use `.map()` since you need a new array with elements changed
 
 ```javascript
