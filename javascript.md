@@ -5,6 +5,33 @@ Welcome to my set of a few good practice guidelines for JS. There are a few more
 - Always include spaces between brackets: `import { Thing, OtherThing } from './stuff';`
 - Always declare arrays in single line when it has only a few elements: `[ 'thing', 'thing2' ];`
 - Keep your code easy to understand, if you're using ternary operators, use it only for one condition, do not chain them
+- No matter what kind of indentation you use (spaces/tabs) as long as you use width of 4, this keeps the code clean and very easy to read
+
+## Always prefer const
+I prefer this for easy debugging and preventing errors. Remember, `const` means you cannot re-assign that variable, but you can change it's value if it is an array or an object.
+
+<h3>Updating an array</h3>
+
+```javascript
+const rows = [];
+
+// This is a React example, but it's valid for other cases too
+people.forEach(person => {
+    rows.push(
+        <Row>
+            <Col>{person.name}</Col>
+        </Row>
+    );
+});
+```
+
+<h3>Updating an object</h3>
+
+```javascript
+const settings = {};
+
+settings.darkMode = true;
+```
 
 ## Null checks
 Always add nullchecks to prevent errors in your console and breaking the flow. <br />
