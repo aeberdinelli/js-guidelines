@@ -49,4 +49,4 @@ const people = peopleArray.map(person => ({
     isAdult: (person.age >= 18)
 });
 ```
-# }
+# };
