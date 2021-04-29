@@ -1,5 +1,11 @@
 Welcome to my set of a few good practice guidelines for JS. There are a few more on this repo for other kind of stacks, and I will soon create a set of rules for eslint to validate them.
 # Guidelines for JS {
+## General rules
+- Always use `;` at the end of each command
+- Always include spaces between brackets: `import { Thing, OtherThing } from './stuff';`
+- Always declare arrays in single line when it has only a few elements: `[ 'thing', 'thing2' ];`
+- Keep your code easy to understand, if you're using ternary operators, use it only for one condition, do not chain them
+
 ## Null checks
 Always add nullchecks to prevent errors in your console and breaking the flow. <br />
 You can use the falsy check or defaulting some value with the `||` operator. For example:
