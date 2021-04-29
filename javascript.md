@@ -101,9 +101,9 @@ if (something) {
 function isSomethingTrue(something) {
     if (something) {
         return true;
+    } else {
+        return false;
     }
-    
-    return false;
 }
 
 // Instead do this
