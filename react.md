@@ -105,4 +105,32 @@ return (
     />
 );
 ```
+
+<h2>Indentation</h2>
+<h3>Do not use more than one level indent</h3>
+
+```javascript
+            <CardActions alignItems={'right'}>
+                <ButtonComponent callback={props.filterBySelected}
+                                text={'APPLY'}/>
+                <ButtonComponent callback={() => setClearCheckbox(true)}
+                                text={'CLEAR'}/>
+            </CardActions>
+```
+
+<br />
+<h3>Use just one instead</h3>
+
+```javascript
+<CardActions alignItems={'right'}>
+    <ButtonComponent 
+        callback={props.filterBySelected}
+        text={'APPLY'}
+    />
+    <ButtonComponent 
+        callback={() => setClearCheckbox(true)}
+        text={'CLEAR'}
+    />
+</CardActions>
+```
 # }
