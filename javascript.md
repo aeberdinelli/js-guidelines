@@ -60,6 +60,7 @@ const adults = people.filter(person => person.age >= 18);
 ```
 
 <h3>Performing an operation for each element</h3>
+
 Use `.forEach()` if you don't need to create a new array
 
 ```javascript
