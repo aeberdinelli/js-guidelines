@@ -115,7 +115,7 @@ function isSomethingTrue(something) {
 ### You don't need `else`
 Sounds weird, but trust me your code will start to look a lot cleaner and easier to understand. <br />
 You can use `return` or `throw` to stop the flow. 
-There's a good article here: https://medium.com/@jamousgeorges/dont-use-else-66ee163deac3 if you'd like to read more about this.
+There's a good article [right here ↗️](https://medium.com/@jamousgeorges/dont-use-else-66ee163deac3) if you'd like to read more about this.
 
 ```javascript
 function getName() {
