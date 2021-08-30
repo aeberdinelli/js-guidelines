@@ -1,10 +1,10 @@
 Welcome to my set of a few good practice guidelines for JS. There are a few more on this repo for other kind of stacks, and I will soon create a set of rules for eslint to validate them.
 # Guidelines for JS {
 ## General rules
-- Always use `;` at the end of each command
+- Always use `;` at the end of each line
 - Always include spaces between brackets: `import { Thing, OtherThing } from './stuff';`
 - Always declare arrays in single line when it has only a few elements: `[ 'thing', 'thing2' ];`
-- Keep your code easy to understand, if you're using ternary operators, use it only for one condition, do not chain them
+- Keep your code easy to understand, if you're using ternary operators, use it only for one condition - **do not chain them**
 - No matter what kind of indentation you use (spaces/tabs) as long as you use width of 4, this keeps the code clean and very easy to read
 - Use spaces after each parameter in a function or method and between different parts of the declaration: `function something(param1, param2, param3) {`
 - Use spaces to keep conditions and loops easy to read: `if (condition) {` / `for (let i = 0; i < 5; i++) {`
@@ -34,6 +34,59 @@ const settings = {};
 
 settings.darkMode = true;
 ```
+
+## Exports
+<h3>Export only what you need</h3>
+
+If you have a module with the main method being something like `lowercase`, export only that method.
+
+```javascript
+function internal(str) {
+    return str.toLowerCase();
+}
+
+function lowercase(str) {
+    return internal(str);
+}
+
+// Do not export everything
+module.exports = { internal, lowercase };
+
+// Instead, export the useful methods
+module.exports = { lowercase };
+```
+
+<h3>Export named methods</h3>
+This also applies to classes. Is better to export a named method instead of a default export. This way, you will force everyone to use your method with the name that you specified and will make maintaince a lot easier, knowing exactly each place the exported method is used. Let me show you an example:
+
+<br>
+
+```javascript
+// This is a default export
+module.exports = function() {}
+
+// This is a named export
+function something() {}
+
+module.exports = { something };
+
+// Example for default export usage
+// Both will work and they will have different name while they are the same method
+const something = require('./something');
+const notSomething = require('./something');
+
+// This will make the method use the same name across your project (unless changing it on purpose)
+// Plus instead of importing the whole module, you just import the method you need
+const { something } = require('./something');
+```
+
+## Arrow functions?
+I know, arrow functions are sexy. However, they are not always needed. Considerate using them only when:
+
+- You need to maintain context for `this`
+- You only have a single-line logic, like when using `.map()` or `.filter()` 
+
+This will make also the previous rule easier to keep.
 
 ## Null checks
 Always add nullchecks to prevent errors in your console and breaking the flow. <br />
