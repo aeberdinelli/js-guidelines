@@ -147,7 +147,16 @@ if (something == true) {
 if (something) {
 ```
 
-### This applies to functions too
+### This applies to ternary operators as well
+```javascript
+// Do not use
+result = (condition != "") ? true : false;
+
+// Just do this
+result = (condition != "");
+```
+
+### And in functions too
 
 ```javascript
 // Do not do this
