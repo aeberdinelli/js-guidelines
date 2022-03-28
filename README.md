@@ -59,7 +59,7 @@ module.exports = { lowercase };
 <h3>Export named methods</h3>
 This also applies to classes. Is better to export a named method instead of a default export. This way, you will force everyone to use your method with the name that you specified and will make maintaince a lot easier, knowing exactly each place the exported method is used. Let me show you an example:
 
-<br>
+<br><br>
 
 ```javascript
 // This is a default export
@@ -134,6 +134,36 @@ const people = peopleArray.map(person => ({
 });
 ```
 
+<h3>Using a certain item from array</h3>
+
+If you know what items you have in an array and want to use them, for instance the result of a `.split()` operation, you can do something like this:
+
+```javascript
+// Instead of
+const parts = fullname.split(' ');
+const name = parts[0];
+const lastname = parts[1];
+
+// You can do
+const [ name, lastname ] = fullname.split(' '); 
+```
+
+
+<h2>Spread operator</h2>
+
+I know sometimes it looks fancy but if you need to grab 8 properties from a 10 properties object, then it's more convenient to just use the object instead of spreading each property from it:
+
+```jsx
+// Instead of doing
+const { prop1, prop2, prop3, prop4, prop5, prop6, prop7, prop8, prop9, prop10, prop11, prop12 } = obj;
+
+// Refence the object itself
+<p>Name: {obj.prop1}</p>
+<p>Lastname: {obj.prop2}</p>
+```
+
+Your code will look cleaner with a lot less lines while getting the same result.
+
 <h2>Conditions</h2>
 
 ### Do not use redundant checks
@@ -187,6 +217,41 @@ function getName() {
     
     return person.name;
 }
+```
+
+<h2>Typescript</h2>
+
+"The whole point of using JS is that I don't have to care about types". I know, most JS developers when first presented TS hate it for this reason. I can assure you, it will help you prevent a lot of common errors. There's no need to use it but if you do, here's some useful tips.
+
+### Type everything
+Types are not only useful to prevent errors and fail compilation if there's a typo somewhere. They're also extremely useful for new developers. You can define the interface of your API (and other things) and welcome new developers to your project.
+
+```typescript
+interface CreateUserRequest {
+    name: string;
+    lastname: string;
+    age?: number;
+}
+
+// This way people just need to check CreateUserRequest interface to find out what properties you accept
+// Also if the IDE supports it, they will get autocomplete to make the DX delightful.
+export function CreateUser(body: CreateUserRequest) {
+```
+
+### Dynamic types
+Most TS developers don't take full advantage of the features available. There are a lot of places where `any` should not be an option. Usually they use `any` when they want to reuse a method across different entities. But you don't need to do that!
+
+```typescript
+// ResponseType is dynamic and you can send TS what type you are expecting from the method
+export function Request(userId: number): Response<ResponseType> {
+    return { name: 'Alan' } as ResponseType;
+}
+
+// You use it like this:
+type User = { name: string };
+
+// response will be of type User and the IDE will get full autocomplete options too
+const response = Request<User>(1);
 ```
 
 # };
