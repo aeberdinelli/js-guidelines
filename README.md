@@ -223,7 +223,7 @@ function getName() {
 
 "The whole point of using JS is that I don't have to care about types". I know, most JS developers when first presented TS hate it for this reason. I can assure you, it will help you prevent a lot of common errors. There's no need to use it but if you do, here's some useful tips.
 
-### Type everything
+### Type everything!!
 Types are not only useful to prevent errors and fail compilation if there's a typo somewhere. They're also extremely useful for new developers. You can define the interface of your API (and other things) and welcome new developers to your project.
 
 ```typescript
