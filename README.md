@@ -59,7 +59,7 @@ module.exports = { lowercase };
 <h3>Export named methods</h3>
 This also applies to classes. Is better to export a named method instead of a default export. This way, you will force everyone to use your method with the name that you specified and will make maintaince a lot easier, knowing exactly each place the exported method is used. Let me show you an example:
 
-<br><br>
+<br>
 
 ```javascript
 // This is a default export
