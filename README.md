@@ -1,5 +1,40 @@
-Welcome to my set of a few good practice guidelines for JS. There are a few more on this repo for other kind of stacks, and I will soon create a set of rules for eslint to validate them.
+<small>Welcome to my set of a few good practice guidelines for JS. There are a few more on this repo for other kind of stacks, and I will soon create a set of rules for eslint to validate them.</small>
+
+<details>
+   <summary>
+       <strong>Table of contents</strong>
+   </summary>
+   <br>
+    
+   * [General rules](#general-rules)
+   * [Always prefer const](#always-prefer-const)
+      * [Updating an array](#updating-an-array)
+      * [Updating an object](#updating-an-object)
+   * [Exports](#exports)
+      * [Export only what you need](#export-only-what-you-need)
+      * [Export named methods](#export-named-methods)
+   * [Arrow functions](#arrow-functions)
+   * [Null checks](#null-checks)
+     * [Defaulting a value](#defaulting-a-value)
+     * [Optional property operator](#using-the-new-optional-property-operator)
+   * [Looping through arrays](#looping-through-arrays)
+     * [Removing items based on condition](#removing-items-based-on-condition)
+     * [Performing operation for each element](#performing-an-operation-for-each-element)
+     * [Customizing elements](#customizing-each-element-of-the-array)
+     * [Using certain items from array](#using-a-certain-item-from-array)
+   * [Spread operator](#spread-operator)
+   * [Conditions](#conditions)
+     * [Do not use redundant checks](#do-not-use-redundant-checks)
+     * [Redundant ternary operators](#this-applies-to-ternary-operators-as-well)
+     * [Redundant function returns](#and-in-functions-too)
+     * [Redundant else](#you-dont-need-else)
+   * [Typescript](#typescript)
+     * [Type everything!](#type-everything)
+     * [Dynamic types](#dynamic-types)
+</details>
+
 # Guidelines for JS {
+
 ## General rules
 - Always use `;` at the end of each line
 - Always include spaces between brackets: `import { Thing, OtherThing } from './stuff';`
