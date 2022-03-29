@@ -4,6 +4,7 @@
    <summary>
        <strong>Table of contents</strong>
    </summary>
+   <strong>{</strong>
    <br>
     
    * [General rules](#general-rules)
@@ -31,6 +32,8 @@
    * [Typescript](#typescript)
      * [Type everything!](#type-everything)
      * [Dynamic types](#dynamic-types)
+   
+   <strong>}</strong>
 </details>
 
 # Guidelines for JS {
