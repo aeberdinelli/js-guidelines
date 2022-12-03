@@ -7,30 +7,30 @@
    <strong>{</strong>
    <br>
     
-   * [General rules](#general-rules)
-   * [General code style rules](#general-style-rules)
-   * [Always prefer const](#always-prefer-const)
+   * [General rules](#-general-rules)
+   * [General code style rules](#-general-style-rules)
+   * [Always prefer const](#-always-prefer-const)
       * [Updating an array](#updating-an-array)
       * [Updating an object](#updating-an-object)
-   * [Exports](#exports)
+   * [Exports](#-exports)
       * [Export only what you need](#export-only-what-you-need)
       * [Export named methods](#export-named-methods)
-   * [Arrow functions](#arrow-functions)
-   * [Null checks](#null-checks)
+   * [Arrow functions](#-arrow-functions)
+   * [Null checks](#-null-checks)
      * [Defaulting a value](#defaulting-a-value)
      * [Optional property operator](#using-the-new-optional-property-operator)
-   * [Looping through arrays](#looping-through-arrays)
+   * [Looping through arrays](#-looping-through-arrays)
      * [Removing items based on condition](#removing-items-based-on-condition)
      * [Performing operation for each element](#performing-an-operation-for-each-element)
      * [Customizing elements](#customizing-each-element-of-the-array)
      * [Using certain items from array](#using-a-certain-item-from-array)
-   * [Spread operator](#spread-operator)
-   * [Conditions](#conditions)
+   * [Spread operator](#-spread-operator)
+   * [Conditions](#-conditions)
      * [Do not use redundant checks](#do-not-use-redundant-checks)
      * [Redundant ternary operators](#this-applies-to-ternary-operators-as-well)
      * [Redundant function returns](#and-in-functions-too)
      * [Redundant else](#you-dont-need-else)
-   * [Typescript](#typescript)
+   * [Typescript](#-typescript)
      * [Type everything!](#type-everything)
      * [Dynamic types](#dynamic-types)
      * [Keep it simple](#keep-it-simple)
@@ -42,14 +42,14 @@
 
 # Guidelines for JS {
 
-## General rules
+## <a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> General rules
 <small>This applies to any language not just JS!</small>
 - **Avoid using libraries** when possible, especially if you can replicate the methods easily (lodash users I'm talking to you). Reasons? Over-sizing your app, and adding code you don't know.
 - **Always focus on readability** rather than "looking smart". Avoid using shorthands or hacks, or using single-character named variables. At the end of the day, the language is not what will make your app slow. If you need to optimize your app, try to optimize images and http requests.
 - **Prevent duplicated code**. You can create any number of reusable functions and it will be far better than re-writing code. Why? If you have to refactor later, you will have to find every copy of the logic while you could just update the function instead.
 - **Keep functions small**. Your function should not work for more than 1 use case. Avoid using a lot of if/else that changes the way it works, create several functions instead. The only place where you could change the implementation based on conditions is within your controllers. In that case, you would call the correct function based on your desired condition. 
 
-## General style rules
+## <a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> General style rules
 - Always use `;` at the end of each line
 - Always include spaces between brackets: `import { Thing, OtherThing } from './stuff';`
 - Always declare arrays in single line when it has only a few elements: `[ 'thing', 'thing2' ];`
@@ -58,7 +58,7 @@
 - Use spaces after each parameter in a function or method and between different parts of the declaration: `function something(param1, param2, param3) {`
 - Use spaces to keep conditions and loops easy to read: `if (condition) {` / `for (let i = 0; i < 5; i++) {`
 
-## Always prefer const
+## <a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> Always prefer const
 I prefer this for easy debugging and preventing errors. Remember, `const` means you cannot re-assign that variable, but you can change it's value if it is an array or an object.
 
 <h3>Updating an array</h3>
@@ -84,7 +84,7 @@ const settings = {};
 settings.darkMode = true;
 ```
 
-## Exports
+## <a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> Exports
 <h3>Export only what you need</h3>
 
 If you have a module with the main method being something like `lowercase`, export only that method.
@@ -129,7 +129,7 @@ const notSomething = require('./something');
 const { something } = require('./something');
 ```
 
-## Arrow functions?
+## <a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> Arrow functions?
 I know, arrow functions are sexy. However, they are not always needed. Considerate using them only when:
 
 - You need to maintain context for `this`
@@ -137,7 +137,7 @@ I know, arrow functions are sexy. However, they are not always needed. Considera
 
 This will make also the previous rule easier to keep.
 
-## Null checks
+## <a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> Null checks
 Always add nullchecks to prevent errors in your console and breaking the flow. <br />
 You can use the falsy check or defaulting some value with the `||` operator. For example:
 
@@ -153,8 +153,7 @@ const name = user.name || 'Unavailable';
 const name = user?.details?.name || 'Unavailable';
 ```
 
-<br />
-<h2>Looping through arrays</h2>
+<h2><a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> Looping through arrays</h2>
 Try to not use the same iterator method everytime. Instead, use whichever is the better for your case.
 
 <h3>Removing items based on condition</h3>
@@ -198,7 +197,7 @@ const [ name, lastname ] = fullname.split(' ');
 ```
 
 
-<h2>Spread operator</h2>
+<h2><a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> Spread operator</h2>
 
 I know sometimes it looks fancy but if you need to grab 8 properties from a 10 properties object, then it's more convenient to just use the object instead of spreading each property from it:
 
@@ -213,7 +212,7 @@ const { prop1, prop2, prop3, prop4, prop5, prop6, prop7, prop8, prop9, prop10, p
 
 Your code will look cleaner with a lot less lines while getting the same result.
 
-<h2>Conditions</h2>
+<h2><a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> Conditions</h2>
 
 ### Do not use redundant checks
 If you have a condition that always returns either `true` or `false`, you don't need to compare it:
@@ -268,7 +267,7 @@ function getName() {
 }
 ```
 
-<h2>Typescript</h2>
+<h2><a href="https://github.com/aeberdinelli/js-guidelines/blob/master/README.md#readme">🠹</a> Typescript</h2>
 
 "The whole point of using JS is that I don't have to care about types". I know, most JS developers when first presented TS hate it for this reason. I can assure you, it will help you prevent a lot of common errors. There's no need to use it but if you do, here's some useful tips.
 
