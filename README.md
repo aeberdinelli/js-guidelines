@@ -8,6 +8,7 @@
    <br>
     
    * [General rules](#general-rules)
+   * [General code style rules](#general-style-rules)
    * [Always prefer const](#always-prefer-const)
       * [Updating an array](#updating-an-array)
       * [Updating an object](#updating-an-object)
@@ -39,6 +40,13 @@
 # Guidelines for JS {
 
 ## General rules
+<small>This applies to any language not just JS!</small>
+- **Avoid using libraries** when possible, especially if you can replicate the methods easily (lodash users I'm talking to you). Reasons? Over-sizing your app, and adding code you don't know.
+- **Always focus on readability** rather than "looking smart". Avoid using shorthands or hacks, or using single-character named variables. At the end of the day, the language is not what will make your app slow. If you need to optimize your app, try to optimize images and http requests.
+- **Prevent duplicated code**. You can create any number of reusable functions and it will be far better than re-writing code. Why? If you have to refactor later, you will have to find every copy of the logic while you could just update the function instead.
+- **Keep functions small**. Your function should not work for more than 1 use case. Avoid using a lot of if/else that changes the way it works, create several functions instead. The only place where you could change the implementation based on conditions is within your controllers. In that case, you would call the correct function based on your desired condition. 
+
+## General style rules
 - Always use `;` at the end of each line
 - Always include spaces between brackets: `import { Thing, OtherThing } from './stuff';`
 - Always declare arrays in single line when it has only a few elements: `[ 'thing', 'thing2' ];`
@@ -291,5 +299,8 @@ type User = { name: string };
 // response will be of type User and the IDE will get full autocomplete options too
 const response = Request<User>(1);
 ```
+
+### Monorepo?
+If you have a React/Node app and a monorepo, you can share your types between both parts of the app. This way, you only have to update the types in one place and is easier to maintain.
 
 # };
