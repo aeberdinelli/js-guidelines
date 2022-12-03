@@ -33,6 +33,7 @@
    * [Typescript](#typescript)
      * [Type everything!](#type-everything)
      * [Dynamic types](#dynamic-types)
+     * [Monorepos?](#monorepo)
    
    <strong>}</strong>
 </details>
