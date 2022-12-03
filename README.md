@@ -33,6 +33,8 @@
    * [Typescript](#typescript)
      * [Type everything!](#type-everything)
      * [Dynamic types](#dynamic-types)
+     * [Keep it simple](#keep-it-simple)
+     * [Avoid duplicated types](#avoid-duplicated-types)
      * [Monorepos?](#monorepo)
    
    <strong>}</strong>
@@ -283,6 +285,23 @@ interface CreateUserRequest {
 // This way people just need to check CreateUserRequest interface to find out what properties you accept
 // Also if the IDE supports it, they will get autocomplete to make the DX delightful.
 export function CreateUser(body: CreateUserRequest) {
+```
+
+### Keep it simple
+Let's say your app depends on a service that returns a huge object and you only need a few properties. You don't need to type every property in your project, instead, you can use an interface with the properties that you know and use. 
+
+### Avoid duplicated types
+You don't need to rewrite types if you only have to discard one of two properties. Imagine you have a REST API and you have a `product` entity. When you create an object for that entity, you don't know the Id, but when you make a GET request you do. In that case you can do something like this:
+
+```typescript
+export type Product {
+    name: string;
+    price: number;
+    id: string;
+}
+
+// This is the same as Product, without the id
+export type ProductCreate = Omit<Product, 'id'>;
 ```
 
 ### Dynamic types
