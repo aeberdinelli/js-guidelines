@@ -1,4 +1,4 @@
-<small>Welcome to my set of a few good practice guidelines for JS. There are a few more on this repo for other kind of stacks, and I will soon create a set of rules for eslint to validate them.</small>
+<small>This is my set of a few good practice guidelines for JS/TS. In my experience, applying these rules will make the code a lot easier to maintain.</small>
 
 <details>
    <summary>
